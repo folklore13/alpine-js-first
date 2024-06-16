@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
-<body>
+<body x-data="{ dark: false }" :class="dark ? 'bg-slate-600' : 'bg-white-400'">
     <div x-data="{open: false, nama: 'Ario'}" class="container mx-auto w-1/2 text-center mt-10 bg-lime-200 p-10 rounded-xl shadow">
         <h1 class="text-5xl font-bold bg-gradient-to-r from-blue-500 to-pink-400 bg-clip-text text-transparent drop-shadow-sm mb-4">
             Hello, <span x-text="nama"></span>!
@@ -16,6 +16,7 @@
         <div x-show="open" x-transition.duration.1000ms class="w-3/4 mx-auto mt-4 p-5 bg-blue-400 rounded text-white">
             Lorem ipsum dolor sit amet
         </div>
+        <button @click="dark = !dark" x-text="dark == false ? 'Dark Mode' : 'White Mode'" class="py-2 px-5 mt-4 bg-slate-600 text-white rounded-md">Dark Mode</button>
     </div>
 </body>
 </html>
